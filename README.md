@@ -83,7 +83,7 @@ if(is_bool($isMyAwesomeFeatureEnabled) && $isMyAwesomeFeatureEnabled) {
 ```
 
 #### Getting user specific setting values with Targeting
-Using this feature, you will be able to get different setting values for different users in your application
+Using this feature, you will be able to get different setting values for different users in your application\
 Percentage and targeted rollouts are calculated by the user object identified by Laravel's Auth class.
 It uses Session ID as a fallback if there is no authenticated user
 
