@@ -1,0 +1,37 @@
+{
+    "name": "configcat/configcat-laravel",
+    "description": "Laravel plugin for the ConfigCat php-sdk",
+    "keywords": ["configcat", "feature flag", "feature toggle", "user targeting", "configcat laravel"],
+    "homepage": "https://github.com/configcat/laravel",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "ConfigCat",
+        "email": "developer@configcat.com",
+        "homepage": "https://configcat.com"
+      }
+    ],
+    "require": {
+      "php": ">=5.5",
+      "configcat/configcat-client": ">=1.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/facade"
+        ],
+        "psr-0": {
+            "ConfigCat\\Config\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ConfigCat\\Config\\ConfigCatServiceProvider"
+            ],
+            "aliases": {
+                "ConfigCat": "ConfigCat\\Config\\Facade\\ConfigCat"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
