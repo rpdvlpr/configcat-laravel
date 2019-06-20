@@ -40,11 +40,13 @@ class ConfigCatService
         'connect-timeout'        => (int) $this->config['connect-timeout'],
       ];
 
+      $this->user = $this->_initUser();
       $this->client = new ConfigCatClient($this->config['api_key'], $this->options);
     }
 
     /**
      * Gets a value from the configuration identified by the given key.
+     * User object is automatically appended for targeted values
      *
      * @param string $key The identifier of the configuration value.
      * @param mixed $defaultValue In case of any failure, this value will be returned.
@@ -52,42 +54,21 @@ class ConfigCatService
      *
      * @return mixed The configuration value identified by the given key.
      */
-    public function getValue($key, $defaultValue = false, User $user = null)
+    public function getValue($key, $defaultValue = false)
     {
-      return $this->client->getValue($key, $defaultValue, $user);
-    }
 
-    /**
-     * Gets a targeted value from the configuration
-     * identified by the given key using
-     * built in User initiation method.
-     *
-     * @param string $key The identifier of the configuration value.
-     * @param mixed $defaultValue In case of any failure, this value will be returned.
-     *
-     * @return mixed The configuration value identified by the given key.
-     */
-    public function getTargetedValue($key, $defaultValue = false)
-    {
-      $user = $this->_getUser();
 
-      return $this->getValue($key, $defaultValue, $user);
+      return $this->client->getValue($key, $defaultValue, $this->user);
     }
 
     /**
      * Set up ConfigCat User for targeting
      * This method loads Laravel User data into ConfigCat User object.
      *
-     * @param string $key The identifier of the configuration value.
-     *
      * @return ConfigCat\User.
      */
-    private function _getUser()
+    private function _initUser()
     {
-      if (isset($this->user)) {
-        return $this->user;
-      }
-
       $authClass = $this->config['auth_class'];
       $authMethod = $this->config['auth_method'];
       $userIdentifier = $this->config['user_identifier'];
@@ -103,8 +84,6 @@ class ConfigCatService
         $userCustom = $laravelUser->$userMethod();
       }
 
-      $this->user = new User($userId, '', '', $userCustom);
-
-      return $this->user;
+      return new User($userId, '', '', $userCustom);
     }
 }
