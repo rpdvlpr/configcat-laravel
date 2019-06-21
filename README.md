@@ -72,6 +72,11 @@ CONFIGCAT_CONNECT_TIMEOUT=10        # optional, defaults to 10 seconds
 ```
 
 ### 5. Get your setting value:
+Using this, you will be able to get different setting values for different users in your application.\
+Percentage and targeted rollouts are calculated by the user object identified by Laravel's Auth class.\
+It uses Session ID as a fallback if there is no authenticated user
+
+Read more about [Targeting here](https://docs.configcat.com/docs/advanced/targeting/).
 
 ```php
 $isMyAwesomeFeatureEnabled = \ConfigCat::getValue("isMyAwesomeFeatureEnabled");
@@ -81,22 +86,6 @@ if(is_bool($isMyAwesomeFeatureEnabled) && $isMyAwesomeFeatureEnabled) {
     doTheOldThing();
 }
 ```
-
-#### Getting user specific setting values with Targeting
-Using this feature, you will be able to get different setting values for different users in your application\
-Percentage and targeted rollouts are calculated by the user object identified by Laravel's Auth class.
-It uses Session ID as a fallback if there is no authenticated user
-
-```php
-$isMyAwesomeFeatureEnabledForThisUser = \ConfigCat::getTargetedValue("isMyAwesomeFeatureEnabledForThisUser");
-if(is_bool($isMyAwesomeFeatureEnabledForThisUser) && $isMyAwesomeFeatureEnabledForThisUser) {
-    doTheNewThing();
-} else {
-    doTheOldThing();
-}
-```
-
-Read more about [Targeting here](https://docs.configcat.com/docs/advanced/targeting/).
 
 ## Support
 If you need help how to use this Laravel Plugin for the ConfigCat PHP SDK feel free to to contact the ConfigCat Staff on https://configcat.com. We're happy to help.
