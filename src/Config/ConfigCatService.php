@@ -1,6 +1,6 @@
 <?php
 
-namespace ConfigCat\Config;
+namespace Rp\Config;
 
 use ConfigCat\User;
 use ConfigCat\ConfigCatClient;

@@ -1,6 +1,6 @@
 <?php
 
-namespace ConfigCat\Config\Facade;
+namespace Rp\Config\Facade;
 
 class ConfigCat extends \Illuminate\Support\Facades\Facade
 {
