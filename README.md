@@ -15,7 +15,7 @@ https://configcat.com
 
 ### 1. Install the package with [Composer](https://getcomposer.org/)
 ```shell
-composer require rp/configcat-laravel
+composer require rpdvlpr/configcat-laravel
 ```
 
 This will install:
@@ -30,7 +30,7 @@ First, we need to add the ConfigCat Services to the list of Providers in config/
 // config/app.php
 'providers' => array(
     // ...
-    Rp\Config\ConfigCatServiceProvider::class,
+    Rpdvlpr\Config\ConfigCatServiceProvider::class,
 );
 ```
 
@@ -40,7 +40,7 @@ If you want to use an ConfigCat facade, add an alias in the same file (not requi
 // config/app.php
 'aliases' => [
     // ...
-    'ConfigCat' => Rp\Config\Facade\ConfigCat::class,
+    'ConfigCat' => Rpdvlpr\Config\Facade\ConfigCat::class,
 ];
 ```
 
