@@ -1,5 +1,5 @@
 {
-    "name": "rp/configcat-laravel",
+    "name": "rpdvlpr/configcat-laravel",
     "description": "Laravel plugin for the ConfigCat php-sdk",
     "keywords": ["configcat", "feature flag", "feature toggle", "user targeting", "configcat laravel"],
     "homepage": "https://github.com/configcat/laravel",
@@ -20,16 +20,16 @@
             "src/facade"
         ],
         "psr-0": {
-            "Rp\\Config\\": "src/"
+            "Rpdvlpr\\Config\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Rp\\Config\\ConfigCatServiceProvider"
+                "Rpdvlpr\\Config\\ConfigCatServiceProvider"
             ],
             "aliases": {
-                "ConfigCat": "Rp\\Config\\Facade\\ConfigCat"
+                "ConfigCat": "Rpdvlpr\\Config\\Facade\\ConfigCat"
             }
         }
     },

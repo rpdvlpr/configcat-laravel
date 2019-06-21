@@ -1,6 +1,6 @@
 <?php
 
-namespace Rp\Config;
+namespace Rpdvlpr\Config;
 
 use Illuminate\Support\ServiceProvider;
 use ConfigCat\SDK\API\Helpers\ApiClient;
