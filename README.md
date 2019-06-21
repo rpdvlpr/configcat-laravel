@@ -23,8 +23,8 @@ This will install:
 * The ConfigCat PHP SDK in vendor\configcat\configcat-client
 * The ConfigCat Laravel Plugin in vendor\configcat\configcat-laravel
 
-### 2. Enable ConfigCat Plugin in Laravel\
-*Note: you can skip this step if you have Laravel 5.5+*
+### 2. Enable ConfigCat Plugin in Laravel
+*Note: you can skip this step if you have Laravel 5.5+*\
 First, we need to add the ConfigCat Services to the list of Providers in config/app.php:
 
 ```php
